@@ -1,0 +1,138 @@
+#product1 {
+    text-align: center;
+}
+
+#product-grid,
+#related-product-grid { /* Apply base styles to both grid types */
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+
+#product1 .pro {
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #fdeee9;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+    display: flex; /* Added for layout control */
+    flex-direction: column; /* Added for layout control */
+}
+
+#product1 .pro:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* FIX: Set a fixed height for image containers for consistency */
+.pro-img-container {
+    width: 100%;
+    height: 280px; /* Fixed height */
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+/* FIX: Make images cover the container without stretching */
+.pro-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+#product1 .pro .des {
+    text-align: start;
+    padding: 10px 0;
+    flex-grow: 1; /* Allow description to fill available space */
+}
+
+#product1 .pro .des span {
+    color: #606063;
+    font-size: 12px;
+}
+
+#product1 .pro .des h5 {
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+}
+
+#product1 .pro .des .star {
+    font-size: 12px;
+    color: rgb(243, 181, 25);
+}
+
+#product1 .pro .des h4 {
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    color: coral;
+}
+
+
+.add-to-cart-btn {
+    width: 45px;
+    height: 45px;
+    background-color: #ffeee9;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    color: coral;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.add-to-cart-btn:hover {
+    background-color: #fddbcd;
+    transform: scale(1.1);
+    border-radius: 50%;
+}
+
+.add-to-cart-btn .cartt-icon {
+    color: coral;
+    font-size: 1rem;
+}
+
+
+.add-to-cart-btn:disabled {
+    cursor: not-allowed;
+    background-color: #e0e0e0;
+}
+
+/* Responsive Styles for Men Product Grid */
+@media (max-width: 768px) {
+  #product1 #product-grid,
+  #product1 #related-product-grid {
+    justify-content: space-around;
+  }
+  #product1 .pro {
+    width: 46%;
+    margin: 10px 1%;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  #product1 .pro {
+    width: 90%;
+    margin: 15px auto;
+  }
+}
+
+/* --- ADDED: Style for Horizontally Scrolling Related Products --- */
+#related-product-grid {
+    flex-wrap: nowrap; /* Prevents items from wrapping to the next line */
+    overflow-x: auto;  /* Adds a horizontal scrollbar if items overflow */
+    justify-content: flex-start; /* Aligns items to the start */
+    gap: 15px; /* Adds space between the product cards */
+    padding-bottom: 20px; /* Adds space for the scrollbar */
+}

@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1d1d1d;
+}
+
+h6 {
+  color: #d8d8d8;
+}
+
+/* ================================= */
+/* ===  GLOBAL BUTTON STYLES    === */
+/* =============================== */
+button{
+  font-size: 0.8rem;
+  font-weight: 700;
+  outline: none;
+  background-color: coral; 
+  color: white;
+  padding: 13px 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border-radius: 30px; 
+  border: 2px solid coral;
+}
+
+button:hover{
+  background-color: #e86a50; 
+  border-color: #e86a50;
+  color: white;
+  border-radius: 30px;
+
+}
+
+button:focus {
+    outline: none;
+  }
+
+/* === Home Page Hero Buttons Variation === */
+#home #visualSearchBtn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+#home #visualSearchBtn:hover {
+    background-color: white;
+    color: #1d1d1d;
+    border-color: white;
+}
+
+
+hr {
+  width: 30px;
+  height: 2px;
+  background-color: #fb774b;
+}
+
+/* =================================== */
+/* ===         Logo Styling       === */
+/* ================================= */
+
+.logo-img {
+  height: 80px;            
+  width: 80px;             
+  border-radius: 50%;      
+  object-fit: cover;       
+  margin-right: 25px;      
+}
+
+/* ===================================== */
+/* ===     NAVBAR ICON STYLES       === */
+/* =================================== */
+
+.profile {
+  position: relative;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+#nav-profile-img { 
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%; 
+  transition: transform 0.2s ease-in-out;
+}
+.profile:hover #nav-profile-img {
+    transform: scale(1.15);
+}
+
+.navbar{
+    font-size: 16px;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    padding: 0 20px;
+    color: black;
+    transition: 0.3s ease;
+}
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active{
+    color: coral;
+}
+
+.navbar i{
+    font-size: 1.2rem;
+    padding: 0 7px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+/* === CART ICON STYLES === */
+
+.nav-cart-link .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: black !important;
+    text-decoration: none;
+}
+.nav-cart-link .nav-link:hover {
+    color: coral !important; 
+}
+#nav-cart-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    transition: transform 0.2s ease-in-out; 
+}
+.nav-cart-link .nav-link:hover #nav-cart-img {
+    transform: scale(1.15);
+}
+.nav-cart-link span {
+    font-weight: 600;
+    color: inherit; 
+}
+
+
+
+
+

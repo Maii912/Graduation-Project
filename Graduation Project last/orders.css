@@ -1,0 +1,279 @@
+/* orders.css */
+
+:root {
+    --page-bg: #f9f9f9;
+    --card-bg: #ffffff;
+    --primary-text: #212529;
+    --secondary-text: #6c757d;
+    --border-color: #dee2e6;
+    --accent-color: coral;
+    --danger-color: #d9534f; /* Added for delete button */
+    --status-delivered-bg: #e7f5ec;
+    --status-delivered-text: #28a745;
+    --status-shipped-bg: #e6f3ff;
+    --status-shipped-text: #007bff;
+    --status-processing-bg: #fff8e1;
+    --status-processing-text: #ffc107;
+}
+
+body {
+    background-color: var(--page-bg);
+    font-family: 'Manrope', sans-serif;
+}
+
+.orders-wrapper {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.orders-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.orders-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-text);
+}
+
+.back-btn {
+    font-size: 1.2rem;
+    color: var(--secondary-text);
+    text-decoration: none;
+    margin-right: 1.5rem;
+    background: var(--card-bg);
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+.back-btn:hover {
+    color: var(--primary-text);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.order-filters {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap; /* Allows filters to wrap on small screens */
+}
+
+.filter-btn {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--secondary-text);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    background-color: #f1f1f1;
+    color: var(--primary-text);
+    border-radius: 20px;
+}
+
+.filter-btn.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.order-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.order-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 1rem;
+    flex-wrap: wrap; /* Allows header to wrap */
+    gap: 10px;
+}
+.order-card-header .order-info {
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+.order-card-header .order-id {
+    font-weight: 700;
+    color: var(--primary-text);
+}
+.order-card-header .order-status {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+.order-status.status-Processing { background-color: var(--status-processing-bg); color: var(--status-processing-text); }
+.order-status.status-Shipped { background-color: var(--status-shipped-bg); color: var(--status-shipped-text); }
+.order-status.status-Delivered { background-color: var(--status-delivered-bg); color: var(--status-delivered-text); }
+
+
+.order-items-list {
+    margin-bottom: 1rem;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    border-radius: 8px;
+    margin: -1rem; 
+    margin-bottom: 0;
+}
+
+.order-item:hover {
+    background-color: #f7f7f7;
+}
+
+.order-item:not(:last-child) {
+    border-bottom: 1px solid #f5f5f5;
+}
+
+
+.order-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.order-item-details {
+    flex-grow: 1;
+}
+.order-item-details h4 {
+    margin: 0 0 4px 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-text);
+}
+.order-item-details p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--secondary-text);
+}
+
+.order-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+}
+.order-card-footer .total-amount {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--primary-text);
+}
+.order-card-footer .total-amount span {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+.order-card-footer .details-btn {
+    padding: 0.6rem 1.2rem;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+}
+
+/* NEW: Styles for Clear History Button */
+.clear-history-container {
+    text-align: center;
+    margin: 2.5rem 0 1rem 0;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--border-color);
+}
+.clear-history-btn {
+    background-color: transparent;
+    border: 2px solid var(--danger-color);
+    color: var(--danger-color);
+    padding: 10px 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.clear-history-btn:hover {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+
+/* Empty State */
+.empty-orders-view {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    border: 1px dashed var(--border-color);
+}
+.empty-orders-view i {
+    font-size: 4rem;
+    color: #ced4da;
+    margin-bottom: 1.5rem;
+}
+.empty-orders-view h3 {
+    font-size: 1.5rem;
+    color: var(--primary-text);
+    margin-bottom: 0.5rem;
+}
+.empty-orders-view p {
+    color: var(--secondary-text);
+    margin-bottom: 2rem;
+}
+.shop-now-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+.shop-now-btn:hover {
+    background-color: #e56b46;
+}
+
+@media(max-width: 600px) {
+    .order-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+}

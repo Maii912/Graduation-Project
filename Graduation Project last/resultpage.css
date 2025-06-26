@@ -1,0 +1,65 @@
+/* ======================================= */
+/* ===       Result Page Specific      === */
+/* ======================================= */
+.result-page-header {
+    margin-top: 100px; /* Pushes content below the fixed navbar */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+/* === Queried Image Style === */
+.query-image-container {
+    max-width: 250px; /* Control the max size of the uploaded image preview */
+    margin: 0 auto 1.5rem auto; /* Center it and add space below */
+    border: 3px solid #f0f0f0;
+    border-radius: 15px;
+    padding: 8px;
+    background-color: #fff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+.query-image-container img {
+    width: 100%;
+    border-radius: 10px; /* Rounded corners for the image itself */
+    object-fit: cover;
+}
+
+.query-image-container h4 {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 500;
+}
+
+/* === Results Section Styling === */
+.similar-items-section {
+    padding: 2rem 0 5rem 0; /* Add plenty of space at the bottom */
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-title h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1d1d1d;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+/* Underline effect for the title */
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: coral;
+    border-radius: 2px;
+}

@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+hr {
+    width: 30px;
+    height: 2px;
+    background-color: coral;
+}
+
+
+/* Men page products */
+#product1 {
+    text-align: center;
+}
+
+#product-grid {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+
+#product1 .pro {
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #fdeee9;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
+
+#product1 .pro:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+
+#product1 .pro img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+#product1 .pro .des {
+    text-align: start;
+    padding: 10px 0;
+}
+
+#product1 .pro .des span {
+    color: #606063;
+    font-size: 12px;
+}
+
+#product1 .pro .des h5 {
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+}
+
+#product1 .pro .des .star {
+    font-size: 12px;
+    color: rgb(243, 181, 25);
+}
+
+#product1 .pro .des h4 {
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    color: coral;
+}
+
+
+.add-to-cart-btn {
+    width: 45px;
+    height: 45px;
+    background-color: #ffeee9;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    color: coral;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.add-to-cart-btn:hover {
+    background-color: #fddbcd;
+    transform: scale(1.1);
+    border-radius: 50%;
+}
+
+.add-to-cart-btn .cartt-icon {
+    color: coral;
+    font-size: 1rem;
+}
+
+
+
+
+.add-to-cart-btn:disabled {
+    cursor: not-allowed;
+    background-color: #e0e0e0;
+}
+
+/* Responsive Styles for Men Product Grid */
+@media (max-width: 768px) {
+  #product1 #product-grid {
+    justify-content: space-around;
+  }
+  #product1 .pro {
+    width: 46%;
+    margin: 10px 1%;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  #product1 .pro {
+    width: 90%;
+    margin: 15px auto;
+  }
+}

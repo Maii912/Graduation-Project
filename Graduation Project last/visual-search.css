@@ -1,0 +1,160 @@
+.visual-search-modal {
+    display: none; /* Hidden by default, activated by JS */
+    position: fixed;
+    z-index: 1050; /* Sits on top of other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if content is too long */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+}
+
+.visual-search-modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 25px 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 85%;
+    max-width: 450px; /* Limits width on large screens */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+}
+
+.visual-search-close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.visual-search-close-btn:hover,
+.visual-search-close-btn:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+.visual-search-modal h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+}
+.visual-search-modal p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.visual-search-drop-zone {
+    border: 3px dashed #ccc;
+    padding: 30px 20px;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    cursor: pointer; /* Indicates it's clickable for file input */
+}
+/* Style for when an item is dragged over the drop zone */
+.visual-search-drop-zone.drag-over {
+    background-color: #eef8ff;
+    border-color: #90caf9;
+}
+.visual-search-drop-zone p { margin: 10px 0; color: #777; pointer-events: none; /* Prevents text from interfering with drop event */ }
+.visual-search-drop-zone strong { color: #444; }
+
+.visual-search-upload-btn {
+    background-color: coral;
+    color: white;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 15px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.visual-search-upload-btn:hover {
+    background-color: #e86a50;
+    border-radius: 25px;
+}
+
+/* For error messages */
+.visual-search-error {
+    color: #d9534f; /* Error red */
+    font-size: 0.85rem;
+    margin-top: 15px;
+    min-height: 1.2em; /* Prevents layout jump when text appears/disappears */
+}
+
+/* Styles for the image preview area */
+.visual-search-preview {
+    margin-top: 20px;
+    /* max-height: 100px; --- Height is constrained by the image inside */
+}
+/* Constrains the uploaded image to prevent it from breaking the modal layout */
+.visual-search-preview img {
+    max-width: 100%;
+    max-height: 100px;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    object-fit: contain;
+}
+
+/* Styles for the action buttons that appear after upload */
+.visual-search-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Creates space between buttons */
+  flex-wrap: wrap; /* Allows buttons to stack on smaller screens */
+  position: relative;
+  z-index: 10; /* Ensures buttons are on top of other elements */
+}
+
+/* General styling for buttons within the action area */
+.visual-search-actions button {
+    flex-basis: 180px; /* Default width */
+    flex-grow: 1; /* Allows them to grow and fill space */
+    max-width: 220px; /* Prevents them from getting too wide */
+    padding: 12px 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid coral;
+    border-radius: 25px;
+    transition: all 0.2s ease;
+}
+
+/* Primary action button style */
+.visual-search-actions button#findSimilarBtn {
+    background-color: coral;
+    color: white;
+    border-radius: 25px;
+}
+.visual-search-actions button#findSimilarBtn:hover {
+    background-color: #e86a50;
+    border-color: #e86a50;
+    border-radius: 25px;
+}
+
+/* Secondary action button style */
+.visual-search-actions button#predictPriceBtn {
+    background-color: white;
+    color: coral;
+    border-radius: 25px;
+}
+.visual-search-actions button#predictPriceBtn:hover {
+    background-color: #fff5f2; /* A very light coral/pink */
+    border-radius: 25px;
+}

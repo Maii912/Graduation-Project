@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Similar Items Found</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+    <!-- Site-wide CSS -->
+    <link rel="stylesheet" href="Navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="search-bar.css">
+    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="user-profile.css">
+    <link rel="stylesheet" href="transitions.css">
+    <link rel="stylesheet" href="visual-search.css">
+
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="resultpage.css">
+</head>
+
+<body>
+    <!-- Navigation Bar (Standard) -->
+    <nav class="navbar navbar-expand-lg navbar-light py-1 fixed-top">
+        <div class="container">
+            <a href="homepage-updated.html">
+                <img class="logo-img" src="Images/Logo.png" alt="FashioNear Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span><i id="bar" class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="homepage-updated.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="All-updated.html">All</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="Men-updated.html">Men</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Women-updated.html">Women</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Kids-updated.html">Kids</a></li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="search-container" id="search-container">
+                        <button class="search-toggle-btn" id="search-toggle-btn"><i class="fas fa-search"></i></button>
+                        <input type="text" placeholder="Search for clothes, accessories..." class="search-input" />
+                        <button class="search-button camera-button" id="navVisualSearchBtn"><i class="fas fa-camera"></i></button>     
+                    </div>
+                    <div class="nav-item nav-cart-link">
+                        <a class="nav-link" href="cart.html">
+                            <img src="Icons/cart.png" alt="Cart Icon" id="nav-cart-img">
+                            (<span id="cart-count">0</span>)
+                        </a>
+                    </div>
+                    <div class="profile" id="profile-icon-btn">
+                        <img src="Icons/user.png" alt="Profile Icon" id="nav-profile-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Visual Search Modal -->
+    <div id="visualSearchModal" class="visual-search-modal" style="display:none;">
+        <div class="visual-search-modal-content">
+          <span class="visual-search-close-btn">×</span>
+            <h4>Visual Search</h4>
+            <p>Find similar items by uploading a photo.</p>
+            
+            <!-- The drop zone is now cleaner and just handles input -->
+            <div class="visual-search-drop-zone">
+              <p><strong>Drag & drop image here</strong></p>
+              <p>or</p>
+              <button class="visual-search-upload-btn">Upload from Device</button>
+              <input type="file" id="visualSearchFileInput" accept="image/*" hidden />
+            </div>
+
+            <!-- Preview, Error, and Action buttons are now siblings -->
+            <p id="visualSearchError" class="visual-search-error"></p>
+            <div id="visualSearchPreview" class="visual-search-preview"></div>
+
+            <!-- New action buttons, hidden by default -->
+            <div id="visualSearchActions" class="visual-search-actions" style="display: none;">
+                <button id="findSimilarBtn">Similar Items</button>
+                <button id="predictPriceBtn">Predict Price</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Price Prediction Modal -->
+    <div id="pricePredictionModal" class="visual-search-modal" style="display:none;">
+        <div class="visual-search-modal-content">
+            <span id="closePricePredictionBtn" class="visual-search-close-btn">×</span>
+            <h4>Price Prediction</h4>
+            <p id="predicted-price-text">The estimated price range for this item is...</p>
+        </div>
+    </div>
+
+    <!-- ======================= -->
+    <!-- === PAGE CONTENT START === -->
+    <!-- ======================= -->
+
+    <!-- 1. The Queried Image -->
+    <header class="result-page-header">
+        <div class="container">
+            <!-- MODIFIED: Container is now ready for dynamic content and hidden by default -->
+            <div class="query-image-container" id="query-image-container" style="display: none;">
+                <img id="query-img" src="" alt="Your Uploaded Image">
+                <h4>Your search</h4>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. The Similar Items Section -->
+    <section class="similar-items-section">
+        <div class="container">
+            <!-- Section Title -->
+            <div class="section-title">
+                <h2>Similar Items</h2>
+            </div>
+        </div>    
+    </section>
+            
+    <section id="product1" class="my-5 pb-5">
+        <div class="container" id="product-grid">
+            <!-- Products will be loaded dynamically -->
+            <div class="loading-spinner" style="text-align: center; padding: 50px;">
+              <i class="fas fa-spinner fa-spin fa-2x"></i>
+              <p>Loading results...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-5 py-5">
+        <div class="row container mx-auto pt-5">
+          <div class="footer-one col-lg-3 col-md-6 col-12">
+            <img class="logo-img" src="Images/Logo.png" alt="FashioNear Logo">
+            <p class="pt-3" style="font-size: 14px; line-height: 1.6;">
+              Discover fashion your way. Search by image or text to find clothes, accessories, and similar styles.
+            </p>
+          </div>
+          <div class="footer-one col-lg-3 col-md-6 col-12">
+            <h5 class="pb-2">Explore</h5>
+            <ul class="text-uppercase list-unstyled">
+              <li><a href="homepage-updated.html">Home</a></li>
+              <li><a href="All-updated.html">All</a></li>
+              <li><a href="Men-updated.html">Men</a></li>
+              <li><a href="Women-updated.html">Women</a></li>
+              <li><a href="Kids-updated.html">Kids</a></li>
+            </ul>
+          </div>
+          <div class="footer-one col-lg-3 col-md-6 col-12">
+            <h5 class="pb-2">Contact Us</h5>
+            <div><h6 class="text-uppercase">Address</h6><p>123 Giza Cairo Egypt</p></div>
+            <div><h6 class="text-uppercase">Phone</h6><p>+20 102 874 6453</p></div>
+            <div><h6 class="text-uppercase">Email</h6><p>support@fashionear.com</p></div>
+          </div>
+          <div class="footer-one col-lg-3 col-md-6 col-12">
+            <h5 class="pb-2">Instagram</h5>
+            <div class="row">
+              <img class="img-fluid w-25 h-100 m-2" src="Images/P1.png" alt="">
+              <img class="img-fluid w-25 h-100 m-2" src="Images/P2.png" alt="">
+              <img class="img-fluid w-25 h-100 m-2" src="Images/P3.png" alt="">
+              <img class="img-fluid w-25 h-100 m-2" src="Images/P1.png" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright mt-5">
+          <div class="row container mx-auto">
+            <div class="col-lg-8 col-md-6 col-12 text-nowrap">
+              <p>FashioNear eCommerce © 2025. All Rights Reserved.</p>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+    </footer>
+    
+    <!-- All script files here -->
+    <script src="api-integration.js"></script>
+    <script src="popup-updated.js"></script>
+    <script src="resultpage-updated.js"></script>
+    <script src="predict-price.js"></script>
+    <script src="search-integration.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="auth.js"></script>
+    <script src="transitions.js"></script>
+</body>
+</html>
+

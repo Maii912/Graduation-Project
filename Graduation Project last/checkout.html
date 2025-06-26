@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="user-profile.css">
+    <link rel="stylesheet" href="Navbar.css"> 
+    <link rel="stylesheet" href="auth.css"> 
+    <link rel="stylesheet" href="transitions.css">
+
+</head>
+<body>
+
+    <div id="userProfileModal" class="profile-modal-container" style="display: none;">
+        <div class="profile-modal-content">
+            <span class="profile-modal-close-btn">×</span>
+            <aside class="profile-sidebar">
+                <h2>User Profile</h2>
+                <nav>
+                    <ul>
+                        <li class="active"><a href="#"><i class="fas fa-user-circle"></i> User info</a></li>
+                        <li><a href="orders.html"><i class="fas fa-box"></i> My orders</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> Setting</a></li>
+                        <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
+                    </ul>
+                </nav>
+                <div class="profile-logout">
+                    <a href="#" id="profile-logout-btn"><i class="fas fa-sign-out-alt"></i> Log out</a>
+                </div>
+            </aside>
+            <main class="profile-main-content">
+                <header class="user-header">
+                    <div class="user-avatar-wrapper">
+                         <img src="Icons/user.png" alt="User Avatar" class="user-avatar" id="profile-avatar-img">
+                         <input type="file" id="avatarUpload" accept="image/png, image/jpeg, image/webp" hidden>
+                         <label for="avatarUpload" class="edit-avatar-btn"><i class="fas fa-camera"></i></label>
+                    </div>
+                    <h3 class="user-name" id="profile-display-name">Your Name</h3>
+                    <p class="user-location" id="profile-display-location">Your Location</p>
+                </header>
+                <form class="profile-form" id="userProfileForm">
+                    <div class="form-grid">
+                        <div class="form-group"><label for="profile-firstname">First Name</label><input type="text" id="profile-firstname" placeholder="Your first name"></div>
+                        <div class="form-group"><label for="profile-lastname">Last Name</label><input type="text" id="profile-lastname" placeholder="Your last name"></div>
+                        <div class="form-group"><label for="profile-email">Email Address</label><input type="email" id="profile-email" placeholder="your.email@example.com" disabled></div>
+                        <div class="form-group"><label for="profile-phone">Phone Number</label><input type="tel" id="profile-phone" placeholder="Your phone number"></div>
+                        <div class="form-group"><label for="profile-location">Location</label><input type="text" id="profile-location" placeholder="e.g. New York, USA"></div>
+                        <div class="form-group"><label for="profile-cardnumber">Card Number</label><input type="text" id="profile-cardnumber" placeholder="XXXX-XXXX-XXXX-XXXX"></div>
+                    </div>
+                    <div class="profile-actions">
+                        <button type="submit" class="save-changes-btn">Save Changes</button>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+
+
+    <div class="cart-wrapper">
+        <header class="cart-header">
+            <a class="back-btn" href="cart.html"><i class="fas fa-arrow-left"></i></a>
+            <h2>checkout</h2>
+        </header>
+
+        <main class="cart-main">
+            <div class="cart-details">
+                <section class="shipping-address card-block">
+                    <h3>Shipping address</h3>
+                    <div class="form-group input-with-icon">
+                        <input type="text" id="shippingAddress" placeholder="Login to auto-fill address">
+                    </div>
+                </section>
+
+                 <div class="radio-option" data-card-option>
+                     <div class="icon"><i class="fas fa-credit-card"></i></div>
+                     <div><p>Credit / Debit Card</p></div>
+                     <div class="check-icon"><i class="fas fa-check-circle"></i></div>
+                </div>
+
+                 <div class="radio-option inactive">
+                     <div class="icon"><i class="fas fa-money-bill-wave"></i></div>
+                     <div><p>Cash on Delivery</p></div>
+                     <div class="check-icon"><i class="fas fa-check-circle"></i></div>
+                </div>
+
+                <section class="payment-information card-block">
+                    <div class="form-group">
+                        <label for="nameOnCard">Name on card</label>
+                        <input type="text" id="nameOnCard" placeholder="Enter full name as it appears on card">
+                    </div>
+                    <div class="form-group input-with-icon">
+                        <label for="cardNumber">Card number</label>
+                        <input type="text" id="cardNumber" placeholder="Login to auto-fill card number">
+                    </div>
+                    <div class="flex" style="display:flex; gap: 1rem;">
+                        <div class="form-group" style="flex:1;">
+                            <label for="expiration">Expiration</label>
+                            <input type="text" id="expiration" placeholder="MM/YY">
+                        </div>
+                        <div class="form-group" style="flex:1;">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="***">
+                        </div>
+                    </div>
+                </section>
+
+                <button class="confirm-btn-checkout" id="confirmPaymentBtn">Confirm Payment <span id="confirmPaymentAmount">0.00 LE</span></button>
+            </div>
+
+            <aside class="cart-summary">
+                <h3>summary</h3>
+                <div class="summary-item"><span>subtotal</span><span id="subtotalValue">0.00 LE</span></div>
+                <div class="summary-item"><span>other processing fee</span><span id="processingFee">80.00 LE</span></div>
+                <div class="summary-item est-taxes"><span>est. taxes</span><span>–</span></div>
+                <div class="summary-item total"><span>total</span><span id="totalValue">80.00 LE</span></div>
+                <hr class="summary-divider">
+                <div class="summary-item grand-total"><span>grand total</span><span id="grandTotalValue">80.00 LE</span></div>
+                <a href="checkout.html">
+                    <button class="checkout-btn" style="visibility: hidden;">Proceed to Checkout</button>
+                </a>
+            </aside>
+        </main>
+    </div>
+
+    <div id="orderSuccessModal" class="success-modal-container">
+        <div class="success-modal-content">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for your purchase. You can track your order status in the "My Orders" section.</p>
+            <div class="success-modal-actions">
+                <a href="homepage.html" class="modal-btn continue-shopping">Continue Shopping</a>
+                <a href="orders.html" class="modal-btn view-orders">View Orders</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="signInPromptModal" class="success-modal-container" style="display: none;">
+        <div class="success-modal-content">
+            <i class="fas fa-sign-in-alt success-icon"></i>
+            <h2>Sign In Required</h2>
+            <p>Please sign in to continue with your purchase and access your saved details.</p>
+            <div class="success-modal-actions">
+                <button class="modal-btn" id="promptSignInBtn">Sign In</button>
+                <button class="modal-btn" id="promptCancelBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cartEmptyModal" class="success-modal-container" style="display: none;">
+         <div class="success-modal-content">
+            <i class="fas fa-shopping-cart success-icon"></i>
+            <h2>Your Cart is Empty</h2>
+            <p>You cannot proceed to checkout because your cart is empty.</p>
+            <div class="success-modal-actions">
+                <a href="homepage.html" class="modal-btn continue-shopping">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="authModal" class="auth-modal-container" style="display: none;">
+        <div class="auth-box" id="auth-box">
+            <div class="form-container sign-up-container">
+                <form>
+                    <h1>Create Account</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    </div>
+                    <span>or use your email for registration</span>
+                    <input type="text" placeholder="First Name" id="signUpName" required/>
+                    <input type="email" placeholder="Email" id="signUpEmail" required/>
+                    <input type="password" placeholder="Password" id="signUpPassword" required/>
+                    <button type="button" id="signUpActionBtn">Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form>
+                    <h1>Sign In</h1>
+                    <div class="social-container">
+                      <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    </div>
+                    <span>or use your account</span>
+                    <input type="email" placeholder="Email" id="signInEmail" required/>
+                    <input type="password" placeholder="Password" id="signInPassword" required/>
+                    <a href="forgot-password.html">Forgot your password?</a>
+                    <button type="button" id="signInActionBtn">Sign In</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button class="ghost" id="signInBtnModal" type="button">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Enter your personal details and start your journey with us</p>
+                        <button class="ghost" id="signUpBtnModal" type="button">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="checkout.js"></script>
+    <script src="transitions.js"></script>
+</body>
+</html>

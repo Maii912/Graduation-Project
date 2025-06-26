@@ -1,0 +1,92 @@
+/* ================================= */
+/* ===       FOOTER STYLES       === */
+/* ================================= */
+
+footer {
+  background-color: #222222;
+  color: #a0a0a0;
+  padding: 60px 0 40px 0; /* Vertical padding */
+}
+
+footer h5 {
+  color: #ffffff; /* Brighter white for headings */
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 25px;
+}
+
+footer p {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+footer .footer-one ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+footer .footer-one li {
+  padding-bottom: 12px;
+}
+
+footer .footer-one li a {
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer .footer-one li a:hover {
+  color: coral; /* Use accent color on hover */
+}
+
+footer .footer-one address {
+  font-style: normal;
+  line-height: 1.8;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
+
+footer .footer-one address strong {
+  color: #ffffff; /* Make labels stand out */
+}
+
+footer .social-links a {
+  color: #a0a0a0;
+  margin-right: 18px;
+  font-size: 1.3rem; /* Larger icons */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+  color: coral; /* Accent color on hover */
+}
+
+/* === Copyright Section === */
+
+.copyright {
+  border-top-color: #333333 !important; /* Darker border */
+}
+
+.copyright p {
+  font-size: 0.85rem;
+  color: #888888;
+  margin: 0;
+}
+
+.copyright .policy-links a {
+  color: #888888;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-left: 20px;
+}
+
+.copyright .policy-links a:hover {
+  color: #ffffff;
+}

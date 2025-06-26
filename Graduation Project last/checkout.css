@@ -1,0 +1,239 @@
+.card-block {
+            background-color: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 15px; /* Adjust as needed, similar to .cart-item */
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03); /* Lighter shadow */
+        }
+        .card-block h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-text-color);
+            margin-bottom: 1rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: coral;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--primary-text-color);
+            box-sizing: border-box; /* Ensures padding doesn't increase width */
+        }
+        .form-group input::placeholder {
+            color: var(--secondary-text-color);
+            opacity: 0.7;
+        }
+        .input-with-icon {
+            position: relative;
+        }
+        .input-with-icon input {
+            padding-right: 2.5rem; /* Space for icon */
+        }
+        .input-with-icon .icon {
+            position: absolute;
+            right: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary-text-color);
+            font-size: 1.2rem;
+        }
+        .radio-option {
+            display: flex;
+            align-items: center;
+            background-color: var(--accent-color-light); /* Light background for selected option */
+            border: 1px solid var(--accent-color); /* Accent border for selected */
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .radio-option.inactive {
+             background-color: #fdfdff;
+             border: 1px solid var(--border-color);
+             opacity: 0.6;
+        }
+        /* MODIFIED: Changed accent color to coral */
+        .radio-option .icon {
+            color: coral;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        .radio-option.inactive .icon {
+            color: var(--secondary-text-color);
+        }
+        .radio-option p {
+            font-weight: 600;
+            color: var(--primary-text-color);
+        }
+        /* MODIFIED: Changed accent color to coral */
+        .radio-option .check-icon {
+            margin-left: auto;
+            color: coral;
+            font-size: 1.3rem;
+        }
+        .radio-option.inactive .check-icon {
+            color: var(--secondary-text-color); /* Grey out check icon for inactive */
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .payment-methods img {
+            width: 45px;
+            height: 30px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            object-fit: contain;
+            padding: 2px;
+        }
+        /* MODIFIED: Consistent main button style */
+        .confirm-btn-checkout {
+            background-color: coral;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 1.1rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        /* MODIFIED: Updated hover and cleaned up redundant radius */
+        .confirm-btn-checkout:hover {
+            background-color: rgb(255, 94, 35);
+            border-radius: 12px;
+        }
+
+/* MODIFIED: Modal Styles */
+.success-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+.success-modal-content {
+    background-color: white;
+    padding: 2.5rem 3rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    animation: fadeInScale 0.4s ease-out;
+}
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.success-icon {
+    font-size: 4rem;
+    color: #28a745; /* Green color for success */
+    margin-bottom: 1rem;
+}
+/* MODIFIED: Changed prompt icon color to coral */
+.prompt-icon {
+    font-size: 4rem;
+    color: coral; /* Use site's accent color */
+    margin-bottom: 1rem;
+}
+
+.success-modal-content h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-text-color);
+    margin: 0 0 0.5rem 0;
+}
+.success-modal-content p {
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 2rem;
+}
+.success-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.modal-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+/*  Secondary button style to match coral theme */
+.modal-btn.continue-shopping {
+    background-color: rgb(255, 234, 226);
+    color: coral;
+    border: 1px solid rgb(255, 234, 226);
+}
+/* MODIFIED: Updated hover for secondary button and cleaned up */
+.modal-btn.continue-shopping:hover {
+    background-color: rgb(255, 211, 193);
+    border-radius: 10px;
+}
+
+/* NEW: Primary modal button styles (used for .view-orders) */
+.modal-btn.view-orders {
+    background-color: coral;
+    color: white;
+}
+.modal-btn.view-orders:hover {
+    background-color: rgb(255, 94, 35); /* Darker coral */
+}
+
+.empty-cart-icon {
+    font-size: 4rem;
+    color: #c0b9b0; /* A soft, neutral grey-blue */
+    margin-bottom: 1rem;
+}
+
+/* NEW: Styles for the confirmation prompt modal */
+.prompt-icon-warning {
+    font-size: 4rem;
+    color: #f0ad4e; /* Warning yellow */
+    margin-bottom: 1rem;
+}
+
+.modal-btn.confirm-delete {
+    background-color: #d9534f; /* Danger red */
+    color: white;
+}
+.modal-btn.confirm-delete:hover {
+    background-color: #c9302c; /* Darker red */
+    border-radius: 10px; /* Redundancy check */
+}

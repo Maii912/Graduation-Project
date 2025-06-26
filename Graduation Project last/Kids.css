@@ -1,0 +1,610 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1d1d1d;
+}
+
+h6 {
+  color: #d8d8d8;
+}
+
+button{
+  font-size: 0.8rem;
+  font-weight: 700;
+  outline: none;
+  border: none;
+  background-color: #1d1d1d;
+  color: aliceblue;
+  padding: 13px 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+}
+
+button:hover{
+  background-color: #3a383a;
+  border-radius: 0%;
+}
+
+button:focus {
+    outline: none;
+  }
+
+hr {
+  width: 30px;
+  height: 2px;
+  background-color: #fb774b;
+}
+
+/* =================================== */
+/* ===         Logo Styling          === */
+/* =================================== */
+.logo-img {
+  height: 80px;            /* Sets the height of the circle */
+  width: 80px;             /* Sets the width, MUST be same as height for a perfect circle */
+  border-radius: 50%;      /* This is the key property that creates the circular shape */
+  object-fit: cover;       /* IMPORTANT: Prevents the image from stretching or squishing. It will be cropped to fit the circle perfectly. */
+  margin-right: 25px;      /* Adds some space between the logo and other nav items */
+
+}
+
+.navbar .iconCart {
+  position: relative;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.navbar .iconCart img {
+  width: 30px;
+  height: auto;
+}
+
+
+.navbar .profile {
+  position: relative;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.navbar .profile img {
+  width: 30px;
+  height: auto;
+}
+
+
+
+
+.navbar{
+    font-size: 16px;
+    top: 0;
+    left: 0;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    padding: 0 20px;
+    color: black;
+    transition: 0.3s ease;
+}
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active{
+    color: coral;
+}
+.navbar i{
+    font-size: 1.2rem;
+    padding: 0 7px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+/* =================================== */
+/* === Authentication Modal Styles sign up , sign in popup page === */
+/* =================================== */
+
+.auth-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1060; /* Higher than bootstrap navbar and visual search */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+}
+
+.auth-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+.auth-box h1 {
+	font-weight: bold;
+	margin: 0;
+    font-size: 2.1rem;
+    color: #333;
+}
+
+.auth-box p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 20px 0 30px;
+}
+
+.auth-box span {
+	font-size: 12px;
+}
+
+.auth-box a {
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+.auth-box a:hover {
+    color: coral;
+}
+
+.auth-box button {
+	border-radius: 20px;
+	border: 1px solid #008080;
+	background-color: #008080;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in, background-color 0.3s;
+}
+
+.auth-box button:active {
+	transform: scale(0.95);
+}
+
+.auth-box button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+.auth-box button.ghost:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.auth-box form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+.auth-box input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+    border-radius: 5px;
+}
+
+.form-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+	left: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+.sign-up-container {
+	left: 0;
+	width: 50%;
+	opacity: 0;
+	z-index: 1;
+}
+
+.social-container {
+	margin: 20px 0;
+}
+
+.social-container a {
+	border: 1px solid #DDDDDD;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width: 40px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.social-container a:hover {
+    background-color: #eee;
+}
+
+.overlay-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	transition: transform 0.6s ease-in-out;
+	z-index: 100;
+}
+
+.overlay {
+	background: #008080;
+	background: -webkit-linear-gradient(to right, #2E8B57, #008080);
+	background: linear-gradient(to right, #2E8B57, #008080);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
+	color: #FFFFFF;
+	position: relative;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+  	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+	transform: translateX(-20%);
+}
+
+.overlay-right {
+	right: 0;
+	transform: translateX(0);
+}
+
+/* === Animation for Panel Sliding === */
+.auth-box.right-panel-active .sign-in-container {
+	transform: translateX(100%);
+}
+
+.auth-box.right-panel-active .overlay-container {
+	transform: translateX(-100%);
+}
+
+.auth-box.right-panel-active .sign-up-container {
+	transform: translateX(100%);
+	opacity: 1;
+	z-index: 5;
+	animation: show 0.6s;
+}
+
+@keyframes show {
+	0%, 49.99% {
+		opacity: 0;
+		z-index: 1;
+	}
+	
+	50%, 100% {
+		opacity: 1;
+		z-index: 5;
+	}
+}
+
+.auth-box.right-panel-active .overlay {
+	transform: translateX(50%);
+}
+
+.auth-box.right-panel-active .overlay-left {
+	transform: translateX(0);
+}
+
+.auth-box.right-panel-active .overlay-right {
+	transform: translateX(20%);
+}
+
+/* ____________________________________________________________ */
+
+/* =================================== */
+/* ===         New Search Bar        === */
+/* =================================== */
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #fff;
+  border-radius: 50px;
+  padding: 6px;
+  margin: 0 15px; /* Added margin to separate from other nav items */
+  width: 350px;
+  transition: all 0.4s ease-in-out;
+  border: none;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px 15px;
+  font-size: 14px;
+  outline: none;
+  color: #E0E0E0; /* Light gray text color */
+}
+
+.search-input::placeholder {
+  color: #999; /* Lighter placeholder text */
+  opacity: 1; 
+}
+
+/* This is the new Camera button */
+.search-button.camera-button {
+  background-color: #000; /* Light gray circle */
+  border: none;
+  color: #fff; /* Dark icon color */
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Prevents button from shrinking */
+  padding: 0; /* Reset padding */
+}
+
+.search-button.camera-button:hover {
+  background-color: #fb774b;
+  transform: scale(1.05);
+}
+
+/* The toggle button, hidden on desktop by default */
+.search-toggle-btn {
+    display: none; /* Hidden on desktop */
+}
+
+
+/* Remove old search button styles that might conflict */
+.search-button {
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.search-button:hover {
+    color: inherit;
+    background: transparent;
+}
+
+
+
+/* ========================================= */
+/* === Search Bar - Mobile Responsive Styles === */
+/* ========================================= */
+@media only screen and (max-width:991px) {
+  /* Make room in the mobile navbar */
+  #navbarSupportedContent {
+      flex-basis: 100%;
+  }
+
+  .search-container {
+      /* Collapsed state on mobile */
+      width: 45px;
+      height: 45px;
+      padding: 0;
+      background-color: transparent; /* No background when collapsed */
+      border-radius: 50%;
+      margin: 0;
+  }
+
+  .search-input,
+  .search-button.camera-button {
+      /* Hide the input and camera when collapsed */
+      opacity: 0;
+      width: 0;
+      padding: 0;
+      margin: 0;
+      display: none;
+  }
+  
+  .search-toggle-btn {
+      /* Show and style the toggle icon */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      font-size: 18px;
+      color: black; /* Visible against light navbar */
+      cursor: pointer;
+      padding: 0;
+  }
+
+  /* --- Expanded state on mobile --- */
+  .search-container.active {
+      width: 100%;
+      background-color: #3C3C3C;
+      padding: 6px;
+      border-radius: 50px;
+      margin-top: 10px; /* Give it space when it opens */
+  }
+
+  .search-container.active .search-input,
+  .search-container.active .search-button.camera-button {
+      /* Reveal the input and camera button */
+      display: flex;
+      opacity: 1;
+      width: auto;
+  }
+    
+  .search-container.active .search-input {
+      width: 100%;
+      padding: 10px 15px;
+  }
+
+  .search-container.active .search-toggle-btn i {
+      color: #E0E0E0; /* Change icon color to be visible on dark background */
+  }
+}
+
+/* Mobile Nav */
+.navbar-light .navbar-toggler{
+  border: none;
+  outline: none;
+}
+
+#bar{
+  font-size: 1.5rem;
+  padding: 7px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease;
+  color: black;
+}
+
+#bar:hover,
+#bar.active{
+  color: #fff;
+}
+
+
+
+@media only screen and (max-width:991px){
+  body > nav > div > button:hover,
+  body > nav > div > button:focus{
+    background-color: #fb774b;
+  }
+
+  body > nav > div > button:hover #bar,
+  body > nav > div > button:focus #bar{
+    color: #fff;
+  }
+
+  #navbarSupportedContent > ul{
+    margin: 1rem;
+    justify-content: flex-end ;
+    text-align: right;
+  }
+
+  #navbarSupportedContent > ul > li:nth-child(n) > a{
+    padding: 10px 0 ;
+  }
+
+}
+
+
+
+
+
+
+
+
+footer{
+  background-color: #222222;
+}
+
+footer h5{
+  color: #d8d8d8;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+footer h1{
+  padding-bottom: 4px;
+}
+
+footer li a{
+  font-size: 0.8rem;
+  color: #999;
+}
+
+footer li a:hover{
+  color: #d8d8d8;
+}
+
+footer p{
+  color: #999;
+  font-size: 0.8rem;
+}
+
+footer .copyright a{
+  color: black;
+  width: 38px;
+  height: 38px;
+  background-color: #fff;
+  display: inline-block;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  margin: 0 5 px;
+}
+
+footer .copyright a:hover{
+  color: #fff;
+  background-color: coral;
+}

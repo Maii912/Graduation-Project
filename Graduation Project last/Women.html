@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FashioNear - Women's Collection</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+        <link rel="stylesheet" href="All.css">
+        <link rel="stylesheet" href="visual-search.css">
+        <link rel="stylesheet" href="Navbar.css">
+        <link rel="stylesheet" href="footer.css">
+        <link rel="stylesheet" href="user-profile.css">
+        <link rel="stylesheet" href="products.css">
+        <link rel="stylesheet" href="auth.css">
+        <link rel="stylesheet" href="search-bar.css">
+        <link rel="stylesheet" href="transitions.css">
+
+    </head>
+
+    <body>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light py-1 fixed-top">            
+            <div class="container">
+                <a href="homepage.html">
+                    <img class="logo-img" src="Images/Logo.png" alt="FashioNear Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i id="bar" class="fas fa-bars"></i></span>
+                </button>
+
+                <!-- All collapsable content now in ONE div for proper mobile behavior -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    
+                    <!-- Page Links pushed to the right from the logo -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="homepage.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="All.html">All</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="Men.html">Men</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="Women.html">Women</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Kids.html">Kids</a></li>
+                    </ul>
+
+                    <!-- Search Bar and Icons grouped together for alignment -->
+                    <div class="d-flex align-items-center">
+                        <div class="search-container" id="search-container">
+                            <button class="search-toggle-btn" id="search-toggle-btn"><i class="fas fa-search"></i></button>
+                            <input type="text" placeholder="Search for clothes, accessories..." class="search-input" />
+                            <button class="search-button camera-button" id="navVisualSearchBtn"><i class="fas fa-camera"></i></button>     
+                        </div>
+                        
+                        <!-- CART  -->
+                        <div class="nav-item nav-cart-link">
+                            <a class="nav-link" href="cart.html">
+                                <img src="Icons/cart.png" alt="Cart Icon" id="nav-cart-img">
+                                (<span id="cart-count">0</span>)
+                            </a>
+                        </div>
+              
+                        <div class="profile" id="profile-icon-btn">
+                            <img src="Icons/user.png" alt="Profile Icon" id="nav-profile-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <section id="product1" class="my-5 pb-5">
+        <div class="container text-center mt-5 py-5">
+            <h3>Women's Collection</h3>
+            <hr class="mx-auto">
+            <p>Discover the latest in women's fashion</p>
+        </div>
+
+        <div class="container" id="product-grid">
+            <!-- Products will be loaded dynamically from API -->
+            <div class="loading-spinner" style="text-align: center; padding: 50px;">
+              <i class="fas fa-spinner fa-spin fa-2x"></i>
+              <p>Loading products...</p>
+            </div>
+        </div>
+    </section>
+
+     <!-- user profile -->
+        
+        <div id="userProfileModal" class="profile-modal-container" style="display: none;">
+            <div class="profile-modal-content">
+                <span class="profile-modal-close-btn">×</span>
+                <aside class="profile-sidebar">
+                    <h2>User Profile</h2>
+                    <nav>
+                        <ul>
+                          <li class="active"><a href="#"><i class="fas fa-user-circle"></i> User info</a></li>
+                          <li><a href="orders.html"><i class="fas fa-box"></i> My orders</a></li>
+                          <li><a href="#"><i class="fas fa-cog"></i> Setting</a></li>
+                          <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
+                        </ul>
+                    </nav>
+                    <div class="profile-logout">
+                        <a href="#" id="profile-logout-btn"><i class="fas fa-sign-out-alt"></i> Log out</a>
+                    </div>
+                </aside>
+                <main class="profile-main-content">
+                    <header class="user-header">
+                        <div class="user-avatar-wrapper">
+                             <img src="Icons/user.png" alt="User Avatar" class="user-avatar" id="profile-avatar-img">
+                             <input type="file" id="avatarUpload" accept="image/png, image/jpeg, image/webp" hidden>
+                             <label for="avatarUpload" class="edit-avatar-btn"><i class="fas fa-camera"></i></label>
+                        </div>
+                        <h3 class="user-name" id="profile-display-name">Your Name</h3>
+                        <p class="user-location" id="profile-display-location">Your Location</p>
+                    </header>
+                    <form class="profile-form" id="userProfileForm">
+                        <div class="form-grid">
+                            <div class="form-group"><label for="profile-firstname">First Name</label><input type="text" id="profile-firstname" placeholder="Your first name"></div>
+                            <div class="form-group"><label for="profile-lastname">Last Name</label><input type="text" id="profile-lastname" placeholder="Your last name"></div>
+                            <div class="form-group"><label for="profile-email">Email Address</label><input type="email" id="profile-email" placeholder="your.email@example.com" disabled></div>
+                            <div class="form-group"><label for="profile-phone">Phone Number</label><input type="tel" id="profile-phone" placeholder="Your phone number"></div>
+                            <div class="form-group"><label for="profile-location">Location</label><input type="text" id="profile-location" placeholder="e.g. New York, USA"></div>
+                            <div class="form-group"><label for="profile-cardnumber">Card Number</label><input type="text" id="profile-cardnumber" placeholder="XXXX-XXXX-XXXX-XXXX"></div>
+                        </div>
+                        <div class="profile-actions">
+                            <button type="submit" class="save-changes-btn">Save Changes</button>
+                        </div>
+                    </form>
+                </main>
+            </div>
+        </div>
+
+        <!-- Authentication sign in/up -->
+
+        <div id="authModal" class="auth-modal-container" style="display: none;">
+            <div class="auth-box" id="auth-box">
+                <div class="form-container sign-up-container">
+                    <form>
+                        <h1>Create Account</h1>
+                        <div class="social-container">
+                            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        </div>
+                        <span>or use your email for registration</span>
+                        <input type="text" placeholder="First Name" id="signUpName" required/>
+                        <input type="email" placeholder="Email" id="signUpEmail" required/>
+                        <input type="password" placeholder="Password" id="signUpPassword" required/>
+                        <button type="button" id="signUpActionBtn">Sign Up</button>
+                    </form>
+                </div>
+                <div class="form-container sign-in-container">
+                    <form>
+                        <h1>Sign In</h1>
+                        <div class="social-container">
+                          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        </div>
+                        <span>or use your account</span>
+                        <input type="email" placeholder="Email" id="signInEmail" required/>
+                        <input type="password" placeholder="Password" id="signInPassword" required/>
+                        <a href="forgot-password.html">Forgot your password?</a>
+                        <button type="button" id="signInActionBtn">Sign In</button>
+                    </form>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h1>Welcome Back!</h1>
+                            <p>To keep connected with us please login with your personal info</p>
+                            <button class="ghost" id="signInBtnModal" type="button">Sign In</button>
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <h1>Hello, Friend!</h1>
+                            <p>Enter your personal details and start your journey with us</p>
+                            <button class="ghost" id="signUpBtnModal" type="button">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="successPromptModal" class="success-modal-container" style="display: none;">
+          <div class="success-modal-content">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h2 id="successModalTitle">Success!</h2>
+            <p id="successModalMessage">Your action was completed successfully.</p>
+            <button id="successModalCloseBtn" class="success-modal-close-btn">OK</button>
+          </div>
+        </div>
+
+
+        <!-- visual search --> 
+
+        <div id="visualSearchModal" class="visual-search-modal" style="display:none;">
+            <div class="visual-search-modal-content">
+              <span class="visual-search-close-btn">×</span>
+                <h4>Visual Search</h4>
+                <p>Find similar items or predict the price by uploading a photo.</p>
+                <div class="visual-search-drop-zone">
+                  <p><strong>Drag & drop image here</strong></p>
+                  <p>or</p>
+                  <button class="visual-search-upload-btn">Upload from Device</button>
+                  <input type="file" id="visualSearchFileInput" accept="image/*" hidden />
+                </div>
+                <p id="visualSearchError" class="visual-search-error"></p>
+                <div id="visualSearchPreview" class="visual-search-preview"></div>
+                <div id="visualSearchActions" class="visual-search-actions" style="display: none;">
+                    <button id="findSimilarBtn">Similar Items</button>
+                    <button id="predictPriceBtn">Predict Price</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="pricePredictionModal" class="visual-search-modal" style="display:none;">
+            <div class="visual-search-modal-content">
+                <span id="closePricePredictionBtn" class="visual-search-close-btn">×</span>
+                <h4>Price Prediction</h4>
+                <p id="predicted-price-text">The estimated price range for this item is...</p>
+            </div>
+        </div>
+
+
+
+        <footer class="mt-5 py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-one col-lg-3 col-md-6 col-12 mb-4">
+                        <h5 class="pb-2">FashioNear</h5>
+                        <p>
+                            Discover fashion your way. Search by image or text to find clothes, accessories, and similar styles from across our collection.
+                        </p>
+                    </div>
+                    <div class="footer-one col-lg-3 col-md-6 col-12 mb-4">
+                        <h5 class="pb-2">Explore</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="homepage.html">Home</a></li>
+                            <li><a href="All.html">All Products</a></li>
+                            <li><a href="Men.html">Men</a></li>
+                            <li><a href="Women.html">Women</a></li>
+                            <li><a href="Kids.html">Kids</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-one col-lg-3 col-md-6 col-12 mb-4">
+                        <h5 class="pb-2">Contact Us</h5>
+                        <address>
+                            <strong>Address:</strong><br>
+                            123 Giza Cairo Egypt<br>
+                            <strong>Phone:</strong><br>
+                            +20 102 874 6453<br>
+                            <strong>Email:</strong><br>
+                            support@fashionear.com
+                        </address>
+                    </div>
+                    <div class="footer-one col-lg-3 col-md-6 col-12 mb-4">
+                        <h5 class="pb-2">Social Media</h5>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="copyright mt-5 pt-4 border-top">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 text-center text-lg-left mb-2 mb-lg-0">
+                            <p>© 2025 FashioNear eCommerce. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-right policy-links">
+                            <a href="#">Terms of Use</a>
+                            <a href="#">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- API Integration Script -->
+        <script src="api-integration.js"></script>
+        <script>
+          // Load women's products when page loads
+          document.addEventListener('DOMContentLoaded', async function() {
+            const products = await fetchProducts('Women');
+            displayProducts(products, 'product-grid');
+          });
+        </script>
+
+        <script src="men-page-script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="cart.js"></script>
+        <script src="auth.js"></script>
+        <script src="popup.js"></script>
+        <script src="transitions.js"></script>
+    </body>
+
+</html>
+
